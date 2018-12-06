@@ -7,12 +7,93 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="./css/bootstrap.css" rel="stylesheet" />
+  <link href="./css/bootstrap-responsive.css" rel="stylesheet" />
+  <link href="./css/fancybox/jquery.fancybox.css" rel="stylesheet">
+  <link href="./css/jcarousel.css" rel="stylesheet" />
+  <link href="./css/flexslider.css" rel="stylesheet" />
+  <link href="./css/style.css" rel="stylesheet" />
+  <script>
+  $(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+  </script>
+  <style>
+  table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  body, html {
+  height: 90%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("./Pictures/Interviewing.jpg");
+
+  /* Add the blur effect */
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+
+  /* Full height */
+  height: 70%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 2px solid #f1f1f1;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 2;
+  width: 80%;
+  height: 30%;
+  padding: 20px;
+  text-align: center;
+}
+  </style>
 </head>
 <body>
 
-<div class="jumbotron text-center">
-  <h1>Interview Tips</h1>
-  <p>Our Personal List of Tips to Ace Your Next Interview</p> 
+
+<div class="bg-image"></div>
+<div class="bg-text">
+  <h1><p style="color:White;"><b>Interview Tips</b></p></h1>
+  <p>Our Personal List of Tips to Ace Your Next Interview</p>
+</div>
 </div>
 
 <nav class="navbar navbar-inverse">
@@ -26,9 +107,18 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="./Home.html">Home</a></li>
-        <li><a href="./About.html">About</a></li>
-        <li><a href="./Contact.html">Contact Us</a></li>
+        <li><a href="./Home.html"> <p style="color:White;">Home </p></a></li>
+        <li><a href="./About.html"> <p style="color:White;">About </p></a></li>
+        <li><a href="./Contact.html"><p style="color:White;"> Contact Us</p></a></li>
+        <li class="dropdown, active">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:White;">Pages
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="./Careers.html">Career & Internship Database</a></li>
+          <li><a href="./Interview.html">Interview Tips</a></li>
+          <li><a href="./Review.html">Resume/ Cover Letter Tips</a></li>
+        </ul>
+        </li>
       </ul>
     </div>
   </div>
@@ -36,13 +126,101 @@
   
 
 <div class="container">
-  <h2>Attire/ Dress</h2>
-  <a href="#demo" class="btn btn-info" data-toggle="collapse">Simple collapsible</a>
+  <h2><b>Before Interivew</b></h2>
+  <a href="#demo" class="btn btn-danger" data-toggle="collapse">Click to View</a>
   <div id="demo" class="collapse">
-    *Dress professionally. <br>
-    *First Impressions matter. <br>
+      <i class="glyphicon glyphicon-check"></i> Do your homework. <br>
+
+      <i class="glyphicon glyphicon-check"></i> Prepare a list of likely questions. <br>
+
+      <i class="glyphicon glyphicon-check"></i> Identify what the organization wants and needs. <br>
+
+      <i class="glyphicon glyphicon-check"></i> Interview yourself for the position. <br>
+
+      <i class="glyphicon glyphicon-check"></i> Practice and plan. <br>
+
+      <i class="glyphicon glyphicon-check"></i> Reflect on previous interviews. <br>
+
+      <i class="glyphicon glyphicon-check"></i> Figure out how to articulate your goals. <br>
+
+      <i class="glyphicon glyphicon-check"></i> Be positive. <br>
+
+      <i class="glyphicon glyphicon-check"></i> Get comfortable. <br>
+
   </div>
 </div>
 
+<div class="container">
+  <h2><b>During Interview</b></h2>
+  <a href="#demo2" class="btn btn-warning" data-toggle="collapse">Click to View</a>
+  <div id="demo2" class="collapse">
+    <i class="glyphicon glyphicon-check"></i> Dress professionally. <br>
+
+    <i class="glyphicon glyphicon-check"></i> First Impressions matter. <br>
+
+  </div>
+</div>
+
+<div class="container">
+  <h2><b>After Interview</b></h2>
+  <a href="#demo3" class="btn btn-success" data-toggle="collapse">Click to View</a>
+  <div id="demo3" class="collapse">
+    <i class="glyphicon glyphicon-check"></i> Write up a follow up E-mail.<br>
+
+    <i class="glyphicon glyphicon-check"></i> Relax, and don't stress about the decision until they give one.<br>
+
+
+
+  </div>
+</div>
+<br>
+<br>
+<div class="container">
+  <h2><b>Interview Tip Database</b></h2>
+  <p>Type in a Search Query to Filter Out Results (e.g. "50 Questions To Prepare For"):</p> 
+
+  <input id="myInput" type="text" placeholder="Search..">
+  <br><br>
+  <div class="panel panel-default">           
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Interview Tip</th>
+        <th>Website Link</th>
+      </tr>
+    </thead>
+    <tbody id ="myTable">
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<footer>
+      <div class="container">
+        <div class="row">
+          <div class="span3">
+            <div class="widget">
+              <h5 class="widgetheading">Browse pages</h5>
+              <ul class="link-list">
+                <li><a href="./Home.html">Home</a></li>
+                <li><a href="./About.html">About</a></li>
+                <li><a href="./Contact.html">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
 </body>
 </html>

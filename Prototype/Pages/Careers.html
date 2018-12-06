@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="./css/bootstrap.css" rel="stylesheet" />
+  <link href="./css/bootstrap-responsive.css" rel="stylesheet" />
+  <link href="./css/fancybox/jquery.fancybox.css" rel="stylesheet">
+  <link href="./css/jcarousel.css" rel="stylesheet" />
+  <link href="./css/flexslider.css" rel="stylesheet" />
+  <link href="./css/style.css" rel="stylesheet" />
   <script>
   $(document).ready(function(){
     $("#myInput").on("keyup", function() {
@@ -33,13 +41,59 @@
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+
+  body, html {
+  height: 90%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("./Pictures/Database1.jpeg");
+
+  /* Add the blur effect */
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+
+  /* Full height */
+  height: 70%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 2px solid #f1f1f1;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 2;
+  width: 80%;
+  height: 30%;
+  padding: 20px;
+  text-align: center;
+}
   </style>
 </head>
 <body>
 
-<div class="jumbotron text-center">
-  <h1>Careers and Internship Database</h1>
-  <p>Entry Level and Internships</p> 
+
+<div class="bg-image"></div>
+<div class="bg-text">
+  <h2><p style="color:White;"><b>Careers and Internship Database</b></p></h2>
+  <p>Entry Level and Internships</p>
+</div>
 </div>
 
 <nav class="navbar navbar-inverse">
@@ -54,9 +108,18 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="./Home.html">Home</a></li>
-        <li><a href="./About.html">About</a></li>
-        <li><a href="./Contact.html">Contact Us</a></li>
+        <li><a href="./Home.html"><p style="color:White;">Home</p></a></li>
+        <li><a href="./About.html"><p style="color:White;">About</p></a></li>
+        <li><a href="./Contact.html"><p style="color:White;">Contact Us</p></a></li>
+        <li class="dropdown, active">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:White;">Pages
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="./Careers.html">Career & Internship Database</a></li>
+          <li><a href="./Interview.html">Interview Tips</a></li>
+          <li><a href="./Review.html">Resume/ Cover Letter Tips</a></li>
+        </ul>
+        </li>
       </ul>
     </div>
   </div>
@@ -64,11 +127,12 @@
 
 
 <div class="container">
-  <h2>Basic Table</h2>
-  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p> 
+  <h2><b>Job Database</b></h2>
+  <p>Type in a Search Query to Filter Out Results (e.g. "Lockheed"):</p> 
 
   <input id="myInput" type="text" placeholder="Search..">
-  <br><br>           
+  <br><br>
+  <div class="panel panel-default">           
   <table class="table">
     <thead>
       <tr>
@@ -98,6 +162,23 @@
     </tbody>
   </table>
 </div>
+</div>
 
+<footer>
+      <div class="container">
+        <div class="row">
+          <div class="span3">
+            <div class="widget">
+              <h5 class="widgetheading">Browse pages</h5>
+              <ul class="link-list">
+                <li><a href="./Home.html">Home</a></li>
+                <li><a href="./About.html">About</a></li>
+                <li><a href="./Contact.html">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
 </body>
 </html>

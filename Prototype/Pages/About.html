@@ -7,12 +7,68 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="./css/bootstrap.css" rel="stylesheet" />
+  <link href="./css/bootstrap-responsive.css" rel="stylesheet" />
+  <link href="./css/fancybox/jquery.fancybox.css" rel="stylesheet">
+  <link href="./css/jcarousel.css" rel="stylesheet" />
+  <link href="./css/flexslider.css" rel="stylesheet" />
+  <link href="./css/style.css" rel="stylesheet" />
+
+  <style>
+  body, html {
+  height: 90%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("./Pictures/Team.jpeg");
+
+  /* Add the blur effect */
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+
+  /* Full height */
+  height: 70%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 2px solid #f1f1f1;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 2;
+  width: 80%;
+  height: 30%;
+  padding: 20px;
+  text-align: center;
+}
+  </style>
 </head>
 <body>
 
-<div class="jumbotron text-center">
-  <h1>Who We Are</h1>
-  <p>And What We Are About</p> 
+
+<div class="bg-image"></div>
+<div class="bg-text">
+  <h1><p style="color:White;"><b>Who We Are</b></p></h1>
+  <p>And What We Are About</p>
+</div>
 </div>
 
 <nav class="navbar navbar-inverse">
@@ -26,9 +82,18 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="./Home.html">Home</a></li>
-        <li class="active"><a>About</a></li>
-        <li><a href="./Contact.html">Contact Us</a></li>
+        <li><a href="./Home.html"><p style="color:White;">Home</p></a></li>
+        <li class="active"><a><p style="color:White;">About</p></a></li>
+        <li><a href="./Contact.html"><p style="color:White;">Contact Us</p></a></li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:White;">Pages
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="./Careers.html">Career & Internship Database</a></li>
+          <li><a href="./Interview.html">Interview Tips</a></li>
+          <li><a href="./Review.html">Resume/ Cover Letter Tips</a></li>
+        </ul>
+        </li>
       </ul>
     </div>
   </div>
@@ -36,11 +101,27 @@
   
 
 <div class="container">
-  <h2>Concept Statement</h2>
+  <h2><b>Concept Statement</b></h2>
   <div class="panel panel-default">
     <div class="panel-body">Our project is a Career Development Resources website that specializes in connecting undergraduate students interested in tech careers with the resources needed for success. The application will be designed to help our users maximize the exposure benefits of tech-related resources that are accessible, usable, and functional. We will create a cutting-edge website that offers resources for internships and entry level positions to help students with their career hunting process. Our website will offer efficient navigation for resources related to the job hunting process, from finding opportunities to preparing and acing technical/behavioral interviews.</div>
   </div>
 </div>
 
+<footer>
+      <div class="container">
+        <div class="row">
+          <div class="span3">
+            <div class="widget">
+              <h5 class="widgetheading">Browse pages</h5>
+              <ul class="link-list">
+                <li><a href="./Home.html">Home</a></li>
+                <li><a href="./About.html">About</a></li>
+                <li><a href="./Contact.html">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
 </body>
 </html>
