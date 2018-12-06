@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `newDb`.`Company_Listings` (
   PRIMARY KEY (`Company_Id`))
 ENGINE = InnoDB;
 
+INSERT IGNORE INTO `Company_Listings`(Title_Of_Job, Type_Of_Job, Location, Date_Posted) VALUES ('Database Administrator', 'Entry-Level','Rockville, MD', '2018-12-05'),('Data Scientist', 'Internship','Laurel, MD', '2018-12-01');
 
 -- -----------------------------------------------------
 -- Table `newDb`.`University`
@@ -55,8 +56,8 @@ CREATE TABLE IF NOT EXISTS `newDb`.`Student` (
   `Student_Name` VARCHAR(45) NULL,
   `Major` VARCHAR(45) NULL,
   `Year` INT NULL,
-  `Company_Listings_Company_Id` INT NOT NULL AUTO_INCREMENT,
-  `University_University_Id` INT NOT NULL AUTO_INCREMENT,
+  `Company_Listings_Company_Id` INT ,
+  `University_University_Id` INT ,
   PRIMARY KEY (`Student_Id`),
   INDEX `fk_Student_Company_Listings_idx` (`Company_Listings_Company_Id` ASC),
   INDEX `fk_Student_University1_idx` (`University_University_Id` ASC),
@@ -84,6 +85,10 @@ CREATE TABLE IF NOT EXISTS `newDb`.`Links` (
   PRIMARY KEY (`Link_Id`))
 ENGINE = InnoDB;
 
+INSERT IGNORE INTO `Links`(Link) VALUES ('https://resume-resource.com/before-after/ba-ex16.pdf'),
+('https://resume-resource.com/pdf/exstu8.pdf');
+
+
 
 -- -----------------------------------------------------
 -- Table `newDb`.`Resources`
@@ -94,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `newDb`.`Resources` (
   `Resource_Id` INT NOT NULL AUTO_INCREMENT,
   `Resource_Name` VARCHAR(45) NULL,
   `Type_Of_Resource` VARCHAR(45) NULL,
-  `Links_Link_Id` INT NOT NULL AUTO_INCREMENT,
+  `Links_Link_Id` INT ,
   PRIMARY KEY (`Resource_Id`),
   INDEX `fk_Resources_Links1_idx` (`Links_Link_Id` ASC),
   CONSTRAINT `fk_Resources_Links1`
@@ -103,6 +108,13 @@ CREATE TABLE IF NOT EXISTS `newDb`.`Resources` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
+
+INSERT IGNORE INTO `Resources`(Resource_Name, Type_Of_Resource, Links_Link_Id) VALUES ('Database Administrator Sample Resume', 'Resume', 1),
+('Internship Sample Resume', 'Resume', 2);
+
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
