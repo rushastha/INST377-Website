@@ -1,0 +1,227 @@
+-- phpMyAdmin SQL Dump
+-- version 4.4.15.7
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 07, 2018 at 12:01 AM
+-- Server version: 5.6.38
+-- PHP Version: 7.1.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `newDb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Company_Listings`
+--
+
+CREATE TABLE IF NOT EXISTS `Company_Listings` (
+  `Company_Id` int(11) NOT NULL,
+  `Title_Of_Job` varchar(45) DEFAULT NULL,
+  `Type_Of_Job` varchar(45) DEFAULT NULL,
+  `Location` varchar(45) DEFAULT NULL,
+  `Date_Posted` datetime DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Company_Listings`
+--
+
+INSERT INTO `Company_Listings` (`Company_Id`, `Title_Of_Job`, `Type_Of_Job`, `Location`, `Date_Posted`) VALUES
+(1, 'Database Administrator', 'Entry-Level', 'Rockville, MD', '2018-12-05 00:00:00'),
+(2, 'Data Scientist', 'Internship', 'Laurel, MD', '2018-12-01 00:00:00'),
+(3, 'Data Analyst Intern', 'Data Analysis', 'Silver Spring, MD', '2018-12-06 00:00:00'),
+(4, 'Client Data Analyst', 'Data Analysis', 'College Park, MD', '2018-12-06 00:00:00'),
+(6, 'Web Developer', 'Web Development', 'Cherry Hill, MD', '2018-12-06 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Links`
+--
+
+CREATE TABLE IF NOT EXISTS `Links` (
+  `Link_Id` int(11) NOT NULL,
+  `Link` text
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Links`
+--
+
+INSERT INTO `Links` (`Link_Id`, `Link`) VALUES
+(1, 'https://resume-resource.com/before-after/ba-ex16.pdf'),
+(2, 'https://resume-resource.com/pdf/exstu8.pdf'),
+(3, 'https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=1962627a-a506-4b8b-831a-1653d9ff2c89&jobId=155013&source=IN'),
+(4, 'https://careers-inc.nttdata.com/job/Silver-Spring-Junior-Data-Analyst-MD-20901/521748100/?feedId=220900&utm_source=Indeed&utm_campaign=NTT_Indeed&mode=job&iis=Job+Posting&iisn=Indeed.com'),
+(5, 'https://www.techguard.com/tgs-careers/web-developer-ii/'),
+(7, 'https://hire.withgoogle.com/public/jobs/morningconsultcom/view/P_AAAAAADAAB0BhMyZN09fZh?trackingTag=indeedFeed');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Resources`
+--
+
+CREATE TABLE IF NOT EXISTS `Resources` (
+  `Resource_Id` int(11) NOT NULL,
+  `Resource_Name` varchar(45) DEFAULT NULL,
+  `Type_Of_Resource` varchar(45) DEFAULT NULL,
+  `Links_Link_Id` int(11) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Resources`
+--
+
+INSERT INTO `Resources` (`Resource_Id`, `Resource_Name`, `Type_Of_Resource`, `Links_Link_Id`) VALUES
+(1, 'Database Administrator Sample Resume', 'Resume', 1),
+(2, 'Internship Sample Resume', 'Resume', 2),
+(3, 'Data Analyst', 'Data Analyst Job', 3),
+(4, 'Junior Data Analyst', 'Data Analyst Job', 4),
+(5, 'Web Developer', 'Web Development Job', 5),
+(6, 'Web Developer II', 'Web Development', 7);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Student`
+--
+
+CREATE TABLE IF NOT EXISTS `Student` (
+  `Student_Id` int(11) NOT NULL,
+  `Student_Name` varchar(45) DEFAULT NULL,
+  `Major` varchar(45) DEFAULT NULL,
+  `Year` int(11) DEFAULT NULL,
+  `Company_Listings_Company_Id` int(11) DEFAULT NULL,
+  `University_University_Id` int(11) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=12348 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Student`
+--
+
+INSERT INTO `Student` (`Student_Id`, `Student_Name`, `Major`, `Year`, `Company_Listings_Company_Id`, `University_University_Id`) VALUES
+(12345, 'Rob Williams', 'Information Science', 3, 3, 11),
+(12346, 'Jen Tigger', 'Computer Science', 2019, 4, 12),
+(12347, 'Doritos Goldfish', 'Biology', 2018, 3, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `University`
+--
+
+CREATE TABLE IF NOT EXISTS `University` (
+  `University_Id` int(11) NOT NULL,
+  `University_Name` varchar(45) DEFAULT NULL,
+  `Location` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `University`
+--
+
+INSERT INTO `University` (`University_Id`, `University_Name`, `Location`) VALUES
+(11, 'University of Maryland', 'College Park, MD'),
+(12, 'University of Maryland', 'Shady Grove, MD'),
+(13, 'University of Texas', 'Texas, TX'),
+(14, 'Virginia Tech University', 'Blacksburg, Virginia');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Company_Listings`
+--
+ALTER TABLE `Company_Listings`
+  ADD PRIMARY KEY (`Company_Id`);
+
+--
+-- Indexes for table `Links`
+--
+ALTER TABLE `Links`
+  ADD PRIMARY KEY (`Link_Id`);
+
+--
+-- Indexes for table `Resources`
+--
+ALTER TABLE `Resources`
+  ADD PRIMARY KEY (`Resource_Id`),
+  ADD KEY `fk_Resources_Links1_idx` (`Links_Link_Id`);
+
+--
+-- Indexes for table `Student`
+--
+ALTER TABLE `Student`
+  ADD PRIMARY KEY (`Student_Id`),
+  ADD KEY `fk_Student_Company_Listings_idx` (`Company_Listings_Company_Id`),
+  ADD KEY `fk_Student_University1_idx` (`University_University_Id`);
+
+--
+-- Indexes for table `University`
+--
+ALTER TABLE `University`
+  ADD PRIMARY KEY (`University_Id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Company_Listings`
+--
+ALTER TABLE `Company_Listings`
+  MODIFY `Company_Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=116;
+--
+-- AUTO_INCREMENT for table `Links`
+--
+ALTER TABLE `Links`
+  MODIFY `Link_Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `Resources`
+--
+ALTER TABLE `Resources`
+  MODIFY `Resource_Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `Student`
+--
+ALTER TABLE `Student`
+  MODIFY `Student_Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12348;
+--
+-- AUTO_INCREMENT for table `University`
+--
+ALTER TABLE `University`
+  MODIFY `University_Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Resources`
+--
+ALTER TABLE `Resources`
+  ADD CONSTRAINT `fk_Resources_Links1` FOREIGN KEY (`Links_Link_Id`) REFERENCES `Links` (`Link_Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `Student`
+--
+ALTER TABLE `Student`
+  ADD CONSTRAINT `fk_Student_Company_Listings` FOREIGN KEY (`Company_Listings_Company_Id`) REFERENCES `Company_Listings` (`Company_Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Student_University1` FOREIGN KEY (`University_University_Id`) REFERENCES `University` (`University_Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
